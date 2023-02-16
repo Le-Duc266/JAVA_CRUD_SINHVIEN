@@ -11,6 +11,8 @@ public class SinhVienDAO {
         this.connection = connection;
     }
 
+
+    // Lấy ra danh sách sinh vien
     public List<SinhVien> getALl() {
         List<SinhVien> result;
         try {
@@ -23,6 +25,7 @@ public class SinhVienDAO {
         return result;
     }
 
+    // sắp xep theo tuổi
     public List<SinhVien> sortByAge() {
         List<SinhVien> result;
         try {
@@ -34,6 +37,7 @@ public class SinhVienDAO {
         }
         return result;
     }
+
 
     // inert
     public void insert(SinhVien svien) {
@@ -54,6 +58,7 @@ public class SinhVienDAO {
         }
     }
 
+    // update thong tin sinh vien
     public void update(SinhVien svien) {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("update students set code=?,name =?,phone=?,address=?,created_at=?,updated_at=?, age=? where id=?");
@@ -71,6 +76,7 @@ public class SinhVienDAO {
         }
     }
 
+    // xóa sinh viên
     public void delete(int id) {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("delete from students where id=?");
