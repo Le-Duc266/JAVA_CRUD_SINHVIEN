@@ -92,9 +92,9 @@ public class SinhVienDAO {
     public List<SinhVien> getByName(String name) {
         List<SinhVien> result;
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("select * from students where  name like ? or address like ?");
+            // tìm kiem theo tên
+            PreparedStatement preparedStatement = connection.prepareStatement("select * from students where  name like ?");
             preparedStatement.setString(1, "%" + name + "%");
-            preparedStatement.setString(2, "%" + name + "%");
             ResultSet resultSet = preparedStatement.executeQuery();
             result= showInfor(resultSet);
 
