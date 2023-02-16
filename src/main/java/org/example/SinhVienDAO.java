@@ -86,9 +86,10 @@ public class SinhVienDAO {
     public List<SinhVien> getByName(String name) {
         List<SinhVien> result;
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("select * from students where  name like ? or address like ?");
+            // tìm kiếm theo địa chỉ
+            System.out.println("Cơ bản là okeee");
+            PreparedStatement preparedStatement = connection.prepareStatement("select * from students where address like ?");
             preparedStatement.setString(1, "%" + name + "%");
-            preparedStatement.setString(2, "%" + name + "%");
             ResultSet resultSet = preparedStatement.executeQuery();
             result= showInfor(resultSet);
 
